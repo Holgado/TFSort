@@ -10,9 +10,11 @@ addons:
       - ubuntu-toolchain-r-test
     packages:
       - gcc
+      - ccpcheck
+      - valgring
 install:
   - "[ $GCC = gcc ] && export GCC=gcc || true"
 script:
-  - make
-#  - make test
+  - make all
+
 
