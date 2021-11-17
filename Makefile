@@ -75,7 +75,7 @@ noflag:
 	gcc $(INC_DIRS) $(SRC_FILES1)
 
 run-cppcheck:
-	cppcheck $(CPPCHECK_FLAGS) src/main.c
+	cppcheck $(CPPCHECK_FLAGS)  src/main.c src/array.c src/get_opt.c src/sort.c
 
 valgrd:
 	$(C_COMPILER) $(INC_DIRS) $(CFLAGS) $(SRC_FILES1) -o runvalgrind
@@ -86,18 +86,38 @@ sanitizer:
 	./runsinitaizer
 
 cov:
-	$(C_COMPILER) $(GCCFLAGS) -fprofile-arcs -ftest-coverage -o $@ src/sort.c
+	$(C_COMPILER) $(GCCFLAGS) -fprofile-arcs -ftest-coverage -o $@ src/main.c src/array.c src/get_opt.c src/sort.c
 	
 run-cov:
-	./cov ABCDE
-	./cov abcde
-	./cov qwertyuiopasdfghjklzxcvbnm
-	./cov 1BCD
-	./cov AB2CD
-	./cov !BCD
-	./cov AB!CD
-	./cov
-	gcov -b cov-identifier.gcda
+	./cov -a selection -n 8 -s random
+	./cov -a insertion -n 8 -s random
+	./cov -a shell -n 8 -s random
+	./cov -a quick -n 8 -s random
+	./cov -a heap -n 8 -s random
+	./cov -a merge -n 8 -s random
+	
+	./cov -a selection -n 8 -s ascending
+	./cov -a insertion -n 8 -s ascending
+	./cov -a shell -n 8 -s ascending
+	./cov -a quick -n 8 -s ascending
+	./cov -a heap -n 8 -s ascending
+	./cov -a merge -n 8 -s ascending
+	
+	./cov -a selection -n 8 -s descending
+	./cov -a insertion -n 8 -s descending
+	./cov -a shell -n 8 -s descending
+	./cov -a quick -n 8 -s descending
+	./cov -a heap -n 8 -s descending
+	./cov -a merge -n 8 -s descending
+
+	./cov -a selection -n 8 -s almost
+	./cov -a insertion -n 8 -s almost
+	./cov -a shell -n 8 -s almost
+	./cov -a quick -n 8 -s almost
+	./cov -a heap -n 8 -s almost
+	./cov -a merge -n 8 -s almost
+	
+	gcov -b cov-sort.gcda
 clean:
 	$(CLEANUP) $(TARGET1)
 	rm -fr $(ALL) *.o cov* *.dSYM *.gcda *.gcno *.gcov runvalgrind runsinitaizer noflag
