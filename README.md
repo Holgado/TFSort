@@ -6,6 +6,8 @@ Obs.: **Modified to remove CUDA code.**
 
 Repository of sorting algorithms in C.
 
+[<img alt="Build Status" src="https://travis-ci.com/Holgado/TFSort.svg?branch=main" height="40">][travis-url]
+
 ## Information
 > Our program generates and fills arrays in four different ways: 
   > 
@@ -55,3 +57,14 @@ To run the program, type:
 |               | descending    | 
 |               | almost        | 
 | -P            |
+
+
+
+[main-url]: https://github.com/holgado/TFSort
+[readme-url]: https://github.com/holgado/TFSort/blob/main/README.md
+[license-url]: https://github.com/holgado/TFSort/blob/main/LICENSE
+[license-img]: https://img.shields.io/github/license/rsp/travis-hello-modern-cpp.svg
+[travis-url]: https://www.travis-ci.com/holgado/TFSort
+[travis-img]: https://app.travis-ci.com/Holgado/TFSort.svg?branch=main
+[github-follow-url]: https://github.com/holgado
+
