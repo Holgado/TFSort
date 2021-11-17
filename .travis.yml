@@ -11,7 +11,7 @@ addons:
     packages:
       - gcc
       - ccpcheck
-      - valgring
+      - valgrind
 install:
   - "[ $GCC = gcc ] && export GCC=gcc || true"
 script:
