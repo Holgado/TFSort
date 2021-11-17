@@ -10,8 +10,6 @@ addons:
       - ubuntu-toolchain-r-test
     packages:
       - gcc
-      - ccpcheck
-      - valgrind
 install:
   - "[ $GCC = gcc ] && export GCC=gcc || true"
 script:
